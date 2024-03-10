@@ -19,18 +19,18 @@
   <title>[算法笔记]线段树优化建图 - Thomas0218 的小破博客</title>
 
   
-    <meta name="description" content="线段树优化建图三种操作:  从 $u$ 到 $v$ 建一条边  从 $u$ 到 $[l,r]$ 内的每一个点都建一条边  从 $[l,r]$ 内的每一个点都向 $v$ 建一条边   点数,操作数 $\leq 10^5$ 显然, $O(n^2)$的暴力建边会 $TLE$, 那么怎么优化? 看到区间显然会想到线段树 考虑到一个区间在线段树上最多可以表示成 $O(\log{n})$ 个节点, 可以考虑建">
+    <meta name="description" content="线段树优化建图三种操作:  从 $$u$$ 到 $$v$$ 建一条边  从 $$u$$ 到 $$[l,r]$$ 内的每一个点都建一条边  从 $$[l,r]$$ 内的每一个点都向 $$v$$ 建一条边   点数,操作数 $$\leq 10^5$$ 显然, $$O(n^2)$$的暴力建边会 $$TLE$$, 那么怎么优化? 看到区间显然会想到线段树 考虑到一个区间在线段树上最多可以表示成 $$O(\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[算法笔记]线段树优化建图">
 <meta property="og:url" content="https://thomasfengye.github.io/2024/03/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%BC%98%E5%8C%96%E5%BB%BA%E5%9B%BE/index.html">
 <meta property="og:site_name" content="Thomas0218 的小破博客">
-<meta property="og:description" content="线段树优化建图三种操作:  从 $u$ 到 $v$ 建一条边  从 $u$ 到 $[l,r]$ 内的每一个点都建一条边  从 $[l,r]$ 内的每一个点都向 $v$ 建一条边   点数,操作数 $\leq 10^5$ 显然, $O(n^2)$的暴力建边会 $TLE$, 那么怎么优化? 看到区间显然会想到线段树 考虑到一个区间在线段树上最多可以表示成 $O(\log{n})$ 个节点, 可以考虑建">
+<meta property="og:description" content="线段树优化建图三种操作:  从 $$u$$ 到 $$v$$ 建一条边  从 $$u$$ 到 $$[l,r]$$ 内的每一个点都建一条边  从 $$[l,r]$$ 内的每一个点都向 $$v$$ 建一条边   点数,操作数 $$\leq 10^5$$ 显然, $$O(n^2)$$的暴力建边会 $$TLE$$, 那么怎么优化? 看到区间显然会想到线段树 考虑到一个区间在线段树上最多可以表示成 $$O(\">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/z1sc8cxq.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/2h5gib0l.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/l77xc0xa.png">
 <meta property="article:published_time" content="2024-03-10T03:45:14.000Z">
-<meta property="article:modified_time" content="2024-03-10T03:52:09.273Z">
+<meta property="article:modified_time" content="2024-03-10T04:02:33.308Z">
 <meta property="article:author" content="thomasfengye">
 <meta property="article:tag" content="算法笔记">
 <meta name="twitter:card" content="summary">
@@ -80,7 +80,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-03-10T03:45:14.000Z">2024-03-10</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-03-10T03:52:09.273Z">2024-03-10</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-03-10T03:45:14.000Z">2024-03-10</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-03-10T04:02:33.308Z">2024-03-10</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -93,17 +93,17 @@
   </div>
   </div><article class="md-text content"><h1 id="线段树优化建图"><a href="#线段树优化建图" class="headerlink" title="线段树优化建图"></a>线段树优化建图</h1><p>三种操作:</p>
 <ul>
-<li><p>从 $u$ 到 $v$ 建一条边</p>
+<li><p>从 $$u$$ 到 $$v$$ 建一条边</p>
 </li>
-<li><p>从 $u$ 到 $[l,r]$ 内的每一个点都建一条边</p>
+<li><p>从 $$u$$ 到 $$[l,r]$$ 内的每一个点都建一条边</p>
 </li>
-<li><p>从 $[l,r]$ 内的每一个点都向 $v$ 建一条边</p>
+<li><p>从 $$[l,r]$$ 内的每一个点都向 $$v$$ 建一条边</p>
 </li>
 </ul>
-<p>点数,操作数 $\leq 10^5$</p>
-<p>显然, $O(n^2)$的暴力建边会 $TLE$, 那么怎么优化? 看到区间显然会想到线段树</p>
-<p>考虑到一个区间在线段树上最多可以表示成 $O(\log{n})$ 个节点, 可以考虑建边时直接指向线段树上的节点。</p>
-<h2 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.luogu.com.cn/upload/image_hosting/z1sc8cxq.png"></p>
+<p>点数,操作数 $$\leq 10^5$$</p>
+<p>显然, $$O(n^2)$$的暴力建边会 $$TLE$$, 那么怎么优化? 看到区间显然会想到线段树</p>
+<p>考虑到一个区间在线段树上最多可以表示成 $$O(\log{n})$$ 个节点, 可以考虑建边时直接指向线段树上的节点。</p>
+<h2 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.luogu.com.cn/upload/image_hosting/z1sc8cxq.png"></p>
 <p>建立两棵线段树:</p>
 <ul>
 <li><p>一棵入树负责管理边的终点</p>
@@ -114,14 +114,14 @@
 <p>因为两棵树的叶子节点本是同一个节点,因此用边权为0的双向边连接。</p>
 <p>入树建树时因从父亲向儿子连边权为0的有向边,出树则应从儿子连向父亲。</p>
 <h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><ol>
-<li>考虑第二个操作:从 $u$ 到 $[l,r]$ 内的每一个点都建一条边。很显然,应从出树的叶子节点向入树的区间连边。<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.luogu.com.cn/upload/image_hosting/2h5gib0l.png"></li>
+<li>考虑第二个操作:从 $$u$$ 到 $$[l,r]$$ 内的每一个点都建一条边。很显然,应从出树的叶子节点向入树的区间连边。<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.luogu.com.cn/upload/image_hosting/2h5gib0l.png"></li>
 </ol>
-<p>例:从 $6$ 到 $[4,7]$ 连边,就在线段树区间修改的递归途中边递归边连边</p>
+<p>例:从 $$6$$ 到 $$[4,7]$$ 连边,就在线段树区间修改的递归途中边递归边连边</p>
 <ol start="2">
-<li>考虑第三个操作:从 $[l,r]$ 内的每一个点都向 $v$ 建一条边。跟操作二一样,应从出树的区间向入树的叶子节点连边。<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.luogu.com.cn/upload/image_hosting/l77xc0xa.png"></li>
+<li>考虑第三个操作:从 $$[l,r]$$ 内的每一个点都向 $$v$$ 建一条边。跟操作二一样,应从出树的区间向入树的叶子节点连边。<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.luogu.com.cn/upload/image_hosting/l77xc0xa.png"></li>
 </ol>
-<p>例:从 $4$ 到 $[2,5]$ 连边。</p>
-<p>这样,我们就解决了建图。可以证明，这样连边建出的图和原来的图没有区别。注意，两棵线段树叶子节点之间的边以及从父亲到儿子、从儿子到父亲的边是必不可少的。建图时间复杂度 $O(n\log{n})$。</p>
+<p>例:从 $$4$$ 到 $$[2,5]$$ 连边。</p>
+<p>这样,我们就解决了建图。可以证明，这样连边建出的图和原来的图没有区别。注意，两棵线段树叶子节点之间的边以及从父亲到儿子、从儿子到父亲的边是必不可少的。建图时间复杂度 $$O(n\log{n})$$。</p>
 <h2 id="模板题"><a href="#模板题" class="headerlink" title="模板题"></a>模板题</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF786B">CF786B Legacy</a></p>
 <p>建图直接运用上述算法即可。</p>
 <p>跑最短路时注意以下几点:</p>
