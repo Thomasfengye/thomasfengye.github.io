@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.27.0" theme-name="Stellar" theme-version="1.27.0">
-  <meta name="robots" content="none">
+  
   <meta name="generator" content="Hexo 7.1.1">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   
@@ -16,16 +16,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>Thomas0218 的小破博客</title>
+  <title>题解:P2231 跳蚤 - Thomas0218 的小破博客</title>
 
   
-    <meta name="description" content="滑动变阻器">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Thomas0218 的小破博客">
-<meta property="og:url" content="https://thomasfengye.github.io/404.html">
+    <meta name="description" content="题解：P2231 [HNOI2002] 跳蚤原问题等价于求解关于$x_i$的不定方程 $\sum_{i&#x3D;1}^n a_i\times x_i + m\times x_{n+1} &#x3D; 1$ 的解个数 很显然, 当且仅当 $gcd(a_1,a_2,\cdots,a_n,m)&#x3D;1$时有解 正难则反,即用 $m^n$ 减去 $gcd(a_1,a_2,\cdots,a_n,m)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="题解:P2231 跳蚤">
+<meta property="og:url" content="https://thomasfengye.github.io/2024/03/16/%E9%A2%98%E8%A7%A3-P2231-%E8%B7%B3%E8%9A%A4/index.html">
 <meta property="og:site_name" content="Thomas0218 的小破博客">
-<meta property="og:description" content="滑动变阻器">
+<meta property="og:description" content="题解：P2231 [HNOI2002] 跳蚤原问题等价于求解关于$x_i$的不定方程 $\sum_{i&#x3D;1}^n a_i\times x_i + m\times x_{n+1} &#x3D; 1$ 的解个数 很显然, 当且仅当 $gcd(a_1,a_2,\cdots,a_n,m)&#x3D;1$时有解 正难则反,即用 $m^n$ 减去 $gcd(a_1,a_2,\cdots,a_n,m)">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-16T15:11:48.000Z">
+<meta property="article:modified_time" content="2024-03-16T15:12:40.415Z">
 <meta property="article:author" content="thomasfengye">
 <meta name="twitter:card" content="summary">
   
@@ -46,7 +48,7 @@
 </head>
 <body>
 
-<div class="l_body s:aa index tech" id="start" layout="404" ><aside class="l_left"><div class="leftbar-container">
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
 
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Thomas0218 的小破博客</div></a></div></header>
@@ -58,28 +60,56 @@
 <nav class="menu dis-select"></nav>
 </div>
 <div class="widgets">
+
+
 <widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/03/16/%E9%A2%98%E8%A7%A3-P2231-%E8%B7%B3%E8%9A%A4/"><span class="title">题解:P2231 跳蚤</span></a><a class="item title" href="/2024/03/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%BC%98%E5%8C%96%E5%BB%BA%E5%9B%BE/"><span class="title">[算法笔记]线段树优化建图</span></a><a class="item title" href="/2024/03/03/20230303%E9%B2%9C%E8%8A%B1/"><span class="title">20230303鲜花</span></a><a class="item title" href="/2024/03/02/hello-world/"><span class="title">Hello World</span></a></div></widget>
-
-
 </div>
 
 </div></aside><div class="l_main" id="main">
 
 
 
-<article class='md-text error-page'>
-  <h1><img id='error' src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/404/1c830bfcd517d.svg' alt='404'></h1>
-  <p class='what'>
-    <strong>
-      很抱歉，您访问的页面不存在
-    </strong>
-  </p>
-  <p class='why'>
-    可能是输入地址有误或该地址已被删除
-  </p>
-  <br><br>
-  <a class='button' id='back' href="/">返回主页</a>
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-03-16T15:11:48.000Z">2024-03-16</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-03-16T15:12:40.415Z">2024-03-16</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>题解:P2231 跳蚤</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="题解：P2231-HNOI2002-跳蚤"><a href="#题解：P2231-HNOI2002-跳蚤" class="headerlink" title="题解：P2231 [HNOI2002] 跳蚤"></a>题解：P2231 [HNOI2002] 跳蚤</h1><p>原问题等价于求解关于$x_i$的不定方程 $\sum_{i&#x3D;1}^n a_i\times x_i + m\times x_{n+1} &#x3D; 1$ 的解个数</p>
+<p>很显然, 当且仅当 $gcd(a_1,a_2,\cdots,a_n,m)&#x3D;1$时有解</p>
+<p>正难则反,即用 $m^n$ 减去 $gcd(a_1,a_2,\cdots,a_n,m)\neq 1$。</p>
+<p>设 $gcd(a_1,a_2,\cdots,a_n,m) &#x3D; p$ 则 $\forall i, p\mid a_i$。考虑 $a_i\leq m$, 有 $a_i\leq \lfloor \frac{m}{p} \rfloor$</p>
+<p>所以,对于 $m$ 的因数 $p$,  共有 ${\lfloor \frac{m}{p} \rfloor}^n$ 种方式使得答案有解。</p>
+<p>考虑能不能只考虑 $m$ 的质因数的贡献。如果直接把 $m$ 的质因数的贡献加起来显然可能出现同一个质因数被算进其他质因数的贡献里。考虑容斥原理。</p>
+<p>令全集 $U$ 为 $m$ 的所有质因数</p>
+<p>$ans &#x3D; \sum_{T\subseteq U} \left{ (-1)^{\lvert T\rvert +1}{\lfloor \frac{m}{\prod_{p\in T}p} \rfloor}^n\right}$</p>
+<p>直接 <code>dfs</code> 或者 <code>状压</code> 即可,最终答案为 $m^n - ans$</p>
+<p>注意到 $2\times 3\times 5\times 7\times 11\times 13\times 17\times 19\times 23&#x3D;223092870\geq 10^8$ 即 $U$ 中最多含有 $9$ 个元素。因此容斥时间复杂度 $O(2^9\times 9)$ 但考虑到需要分解质因数,因此总复杂度 $O(\sqrt{n})$。</p>
+<p>给出关键代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(ll mask = <span class="number">1</span>; mask &lt; (<span class="number">1</span> &lt;&lt; k); mask++) &#123;</span><br><span class="line">    ll sum = <span class="number">1</span>; <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; i++)</span><br><span class="line">        <span class="keyword">if</span>(mask &amp; (<span class="number">1ll</span> &lt;&lt; (i - <span class="number">1</span>))) cnt++, sum *= prime[i];</span><br><span class="line">    <span class="keyword">if</span>(cnt % <span class="number">2</span> == <span class="number">0</span>) ans -= <span class="built_in">qpow</span>(m / sum, n);</span><br><span class="line">    <span class="keyword">else</span> ans += <span class="built_in">qpow</span>(m / sum, n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
 </article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/03/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%BC%98%E5%8C%96%E5%BB%BA%E5%9B%BE/">[算法笔记]线段树优化建图</a></div></section></div>
+
+
 
 
 
@@ -87,7 +117,14 @@
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">thomasfengye</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.27.0">Stellar 1.27.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-</aside><div class='float-panel blur'>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3%EF%BC%9AP2231-HNOI2002-%E8%B7%B3%E8%9A%A4"><span class="toc-text">题解：P2231 [HNOI2002] 跳蚤</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
