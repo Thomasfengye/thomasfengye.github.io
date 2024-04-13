@@ -16,18 +16,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>[算法笔记]二项式反演 - Thomas0218 的小破博客</title>
+  <title>二项式反演 - Thomas0218 的小破博客</title>
 
   
     <meta name="description" content="二项式反演介绍设  为恰好使用  个元素满足某条件的方案数， 为  个元素中选  个满足某条件其余元素随意的方案数。 显然  。那么，若已知 ，需求 ，有如下反演公式：  证明 将  展开    交换求和顺序：   根据  可得：   发现  是一个二项式定理，   因此：  证毕。   两种常见形式 形式一：设  为恰好使用  个元素满足某条件的方案数， 为  个元素中选  个满足某条件的方案数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[算法笔记]二项式反演">
+<meta property="og:title" content="二项式反演">
 <meta property="og:url" content="https://thomasfengye.github.io/2024/04/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%8F%8D%E6%BC%94/index.html">
 <meta property="og:site_name" content="Thomas0218 的小破博客">
 <meta property="og:description" content="二项式反演介绍设  为恰好使用  个元素满足某条件的方案数， 为  个元素中选  个满足某条件其余元素随意的方案数。 显然  。那么，若已知 ，需求 ，有如下反演公式：  证明 将  展开    交换求和顺序：   根据  可得：   发现  是一个二项式定理，   因此：  证毕。   两种常见形式 形式一：设  为恰好使用  个元素满足某条件的方案数， 为  个元素中选  个满足某条件的方案数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-13T14:00:36.000Z">
-<meta property="article:modified_time" content="2024-04-13T14:01:12.627Z">
+<meta property="article:modified_time" content="2024-04-13T14:02:37.185Z">
 <meta property="article:author" content="thomasfengye">
 <meta property="article:tag" content="算法笔记">
 <meta name="twitter:card" content="summary">
@@ -175,7 +175,7 @@ mjx-container[display="true"] + br {
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/04/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%8F%8D%E6%BC%94/"><span class="title">[算法笔记]二项式反演</span></a><a class="item title" href="/2024/03/16/%E9%A2%98%E8%A7%A3-P2231-%E8%B7%B3%E8%9A%A4/"><span class="title">题解:P2231 跳蚤</span></a><a class="item title" href="/2024/03/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%BC%98%E5%8C%96%E5%BB%BA%E5%9B%BE/"><span class="title">[算法笔记]线段树优化建图</span></a><a class="item title" href="/2024/03/03/20230303%E9%B2%9C%E8%8A%B1/"><span class="title">20230303鲜花</span></a><a class="item title" href="/2024/03/02/hello-world/"><span class="title">Hello World</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/04/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%8F%8D%E6%BC%94/"><span class="title">二项式反演</span></a><a class="item title" href="/2024/03/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%BC%98%E5%8C%96%E5%BB%BA%E5%9B%BE/"><span class="title">线段树优化建图</span></a><a class="item title" href="/2024/03/16/%E9%A2%98%E8%A7%A3-P2231-%E8%B7%B3%E8%9A%A4/"><span class="title">题解:P2231 跳蚤</span></a><a class="item title" href="/2024/03/03/20230303%E9%B2%9C%E8%8A%B1/"><span class="title">20230303鲜花</span></a><a class="item title" href="/2024/03/02/hello-world/"><span class="title">Hello World</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -188,12 +188,12 @@ mjx-container[display="true"] + br {
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-04-13T14:00:36.000Z">2024-04-13</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-04-13T14:01:12.627Z">2024-04-13</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-04-13T14:00:36.000Z">2024-04-13</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-04-13T14:02:37.185Z">2024-04-13</time></span></div></div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>[算法笔记]二项式反演</span></h1>
+        <h1 class="text title"><span>二项式反演</span></h1>
         
       </div>
     </div>
