@@ -339,6 +339,136 @@ mjx-container[display="true"] + br {
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2025/11/28/%E9%A2%98%E8%A7%A3-p13495/" target="_self">
+          题解：P13495
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/11/28/%E9%A2%98%E8%A7%A3-p13495/" target="_self">
+        <div>
+          洛谷 P13495 题意对  的方格填入 ，其中给定了  个位置以及上面的数，求使得每行每列的和均为奇数的方案数。。 分析先从每个格子的行向列连边，这样得到了一个二分图。 挖掉这  个给定的格子，同时使格子对应的行和列点权异或 。问题转化为，在边上填 ，使得每个点所有边异或和等于自己的点权。 把这个二分图拆成若干个互不影响的连通块。对于一个连通块，设其大小为 ，所含的边数量为 。找出这个连通块的一
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-11-28 12:06" pubdate>
+              2025-11-28
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/">#图论</a>
+            
+              <a href="/tags/%E7%BB%84%E5%90%88%E8%AE%A1%E6%95%B0/">#组合计数</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/11/28/%E9%A2%98%E8%A7%A3-P4931/" target="_self">
+          题解：P4931
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/11/28/%E9%A2%98%E8%A7%A3-P4931/" target="_self">
+        <div>
+          洛谷 P4931 题意给定  对男女，要求将这  个人排列成两列，每列  个人，且恰好有  对男女在同一行。多测，。 分析设  表示将  对男女全部错开的方案数。则答案为 。 考虑递推求出 。我们考虑第一排填的性别，有男男、女女、男女这三种，其中男女不能是同一对，方案数有  种。由于其实我们并不关心这两个人的性别（只要不是同一组的就行），因此不妨设第一排填的是男男。我们找到这两个男的对应的两个女的
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-11-28 11:35" pubdate>
+              2025-11-28
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E7%BB%84%E5%90%88%E8%AE%A1%E6%95%B0/">#组合计数</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/11/28/%E9%A2%98%E8%A7%A3-CF21D/" target="_self">
+          题解：CF21D Traveling Graph
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/11/28/%E9%A2%98%E8%A7%A3-CF21D/" target="_self">
+        <div>
+          CF21D 题意给定一张带权无向图，要求找一条从  开始并以  结束的回路，使得图上每条边都至少被经过一次，并求边权和最小的路径。。 分析原题等价于将一些边复制若干次使得存在欧拉回路。存在欧拉回路的充要条件是 。所以再转化一下题目，就是：每个点初始时有个  点权 ，每次可以花费  使得  和  异或 ，最终使得所有点权都为  的最小代价。 注意到  非常小，考虑状压。设  表示点权状态为  的最小
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-11-28 11:04" pubdate>
+              2025-11-28
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/dp/">#dp</a>
+            
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/">#图论</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2025/11/23/%E7%BB%84%E5%90%88%E8%AE%A1%E6%95%B0/" target="_self">
           组合计数笔记
         </a>
@@ -622,132 +752,6 @@ mjx-container[display="true"] + br {
               <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
             
               <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">#字符串</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/10/19/%E6%94%BF%E6%B2%BB%E5%AD%A6%E7%AC%94%E8%AE%B0/" target="_self">
-          政治学笔记
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2025/10/19/%E6%94%BF%E6%B2%BB%E5%AD%A6%E7%AC%94%E8%AE%B0/" target="_self">
-        <div>
-          第一单元 政治的概念古今中外各种政治思潮最核心的区别在于对政治的概念的不同理解“政治”一词在我国古代：政事得以治理在我国近代，政治一词由中国传入日本，再传回中国 希腊语polis（城邦）地域概念转化为人的概念 亚里士多德（理想主义）：  至上性：其他科学都为其服务决定其他科学的目的 公共性：治理平等自由人城邦是共同体（有机体理论）政治只处理公事，追求最高的善人在本性上是政治的动物 政治与理性演说
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-10-19 21:15" pubdate>
-              2025-10-19
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/10/13/%E9%A2%98%E8%A7%A3-CF260E/" target="_self">
-          题解：CF260E Dividing Kingdom
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2025/10/13/%E9%A2%98%E8%A7%A3-CF260E/" target="_self">
-        <div>
-          CF260E 分析首先我们发现不好确定这九个区域都属于谁，不妨枚举这九个孩子的全排列。 而我们容易知道每根横竖分割线在哪里，因为可由每一横行或纵列的总和推出在哪个点。 于是剩下要做的就是检验这些分割线是否合法。这是个二维数点问题，可以扫描线/树套树等，这里采用的是树套树。 设 ，则时间复杂度为 。 代码123456789101112131415161718192021222324252627282
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-10-13 16:12" pubdate>
-              2025-10-13
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
-            
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/10/11/%E9%A2%98%E8%A7%A3-CF264E/" target="_self">
-          题解：CF264E Roadside Trees
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2025/10/11/%E9%A2%98%E8%A7%A3-CF264E/" target="_self">
-        <div>
-          CF264E 分析最长上升子序列显然使用  维护，这时，为了更好处理，我们把最长上升子序列倒过来，设  表示以  开头的最长上升自序列长度。下面，我们令  时刻种下的树高 ，这样就可以处理由时间带来的树高差距。这里大概率会出现负数，下标需要加上偏移量 。 我们观察到 ，考虑加入一个树会有什么影响，由于它的树高不超过 ，且每个树的高度不同，故最多有  个树比它矮。我们开个线段树维护编号在  内的树的
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-10-11 21:11" pubdate>
-              2025-10-11
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
-            
-              <a href="/tags/dp/">#dp</a>
-            
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
             
           </div>
         
