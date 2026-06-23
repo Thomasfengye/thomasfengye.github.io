@@ -1,0 +1,786 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/background.jpg">
+  <link rel="icon" href="/img/background.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="thomasfengye">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="做题记录P2906 旋转坐标系 把一个菱形通过 $(x,y)\rightarrow (\frac{x+y}{2},\frac{x-y}{2})$ 变成正方形 P6669 卢卡斯定理+数位dp P4001 [网络流] 平面图最小割&#x3D;对偶图最短路  P3177 拆贡献（拆到每一条边上） UVA1389 [网络流] 最大密度子图  Daksv. two strings [SA] 把操作先都做完">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thomas0218 的个人博客">
+<meta property="og:url" content="https://thomasfengye.github.io/2026/04/25/%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Thomas0218 的个人博客">
+<meta property="og:description" content="做题记录P2906 旋转坐标系 把一个菱形通过 $(x,y)\rightarrow (\frac{x+y}{2},\frac{x-y}{2})$ 变成正方形 P6669 卢卡斯定理+数位dp P4001 [网络流] 平面图最小割&#x3D;对偶图最短路  P3177 拆贡献（拆到每一条边上） UVA1389 [网络流] 最大密度子图  Daksv. two strings [SA] 把操作先都做完">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/1go73cvw.png">
+<meta property="article:published_time" content="2026-04-25T09:35:26.552Z">
+<meta property="article:modified_time" content="2026-05-05T12:58:39.845Z">
+<meta property="article:author" content="thomasfengye">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/1go73cvw.png">
+  
+  
+  
+  <title>Thomas0218 的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"thomasfengye.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Thomas0218</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/top_back.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-25 17:35" pubdate>
+          2026年4月25日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          74 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="做题记录"><a href="#做题记录" class="headerlink" title="做题记录"></a>做题记录</h2><p><strong>P2906</strong> 旋转坐标系 把一个菱形通过 $(x,y)\rightarrow (\frac{x+y}{2},\frac{x-y}{2})$ 变成正方形</p>
+<p><strong>P6669</strong> 卢卡斯定理+数位dp</p>
+<p><strong>P4001</strong> [网络流] 平面图最小割&#x3D;对偶图最短路 </p>
+<p><strong>P3177</strong> 拆贡献（拆到每一条边上）</p>
+<p><strong>UVA1389</strong> [网络流] 最大密度子图 </p>
+<p><strong>Daksv. two strings</strong> [SA] 把操作先都做完，把ab拼一起，题目转化成 $s[l_1\cdots r_1]$ 中 $s[l_2\cdots r_2]$ 出现的次数，用 SA 刻画成 $rk_i$ 和 $i$ 上两端连续区间的交集，直接主席树维护一下。</p>
+<p><strong>SP1811</strong> [SA] 最长公共子串。用 SA 刻画一下，把两个串拼一起，只查 $rk$ 相邻的两个位置，判断一下是不是在不同串里。</p>
+<p><strong>P13270</strong> 【模板】最小表示法</p>
+<p><strong>CF1481E</strong> 正难则反，设 $f_i$ 表示后缀最多多少本书没动，转移时可以继承或者把所有同色书中间的书挪走。</p>
+<p><strong>P4248</strong> [SA] SA+单调栈</p>
+<p><strong>P3268</strong> [计算几何] trick:将每个圆分成上下两个半圆。从左到右扫描线，可以发现在同一横坐标下的两个圆，与这个 $x&#x3D;l$ 的竖线的交点可以确定它们的关系。具体地，设当前扫到的交点是与圆 $i$ 的交点 $(x,y)$，在 $(x,y)$ 上方的第一个交点是 $(x_1,y_1)$。若 $(x_1,y_1)$ 在某个圆 $j$ 的下半部分，则 $i$ 和 $j$ 相离，且他们的父亲一样；若是 $j$ 的上半部分，则 $i$ 被 $j$ 包含，即 $i$ 的父亲是 $j$。</p>
+<p>实现时，用 set 维护交点，注意它们的大小关系不会随着 $l$ 的改变而改变。</p>
+<p><strong>P11817</strong> [组合计数] 可以参考 <code>C921. Alpharise 题</code>。</p>
+<p><strong>P3974</strong> [组合计数] Dilworth 引理。</p>
+<blockquote>
+<p>Dilworth 引理：对于一个偏序集 $(P,\leq)$，定义<strong>链</strong>为 $x_1,x_2,\cdots x_n$，满足 $x_1\leq x_2\leq \cdots \leq x_n$；定义<strong>反链</strong>为 $x_1,x_2,\cdots x_n$，满足 $\forall i\neq j, x_i,x_j$ 不可比（其中不可比指的是，既不满足 $x_i\leq x_j$ 也不满足 $x_j\leq x_i$）。那么 Dilworth 引理告诉我们：偏序集最小链覆盖&#x3D;最长反链长度（也称为<strong>宽度</strong> $w$）。</p>
+</blockquote>
+<blockquote>
+<p>偏序集可以表示成一个有向无环图（因为偏序关系满足传递性），所以有向无环图的最小链覆盖&#x3D;最长反链长度。</p>
+</blockquote>
+<p>证明：首先显然最小链覆盖 $\geq$ 最长反链长度。下证可以取等。对 $\lvert P\rvert$ 使用数学归纳法。做如下分类讨论：</p>
+<ul>
+<li>如果存在长度为 $w$ 的最长反链 $A$，使得它既不是极大值集合，也不是极小值集合（形象地说，就是 $A$ 横截在这个有向无环图上）。那么 $P$ 可以划分成 $P^+&#x3D;\{x\in P\wedge \exists a\in A,a\leq x\}$（即 $A$ 及 $A$ 上方的点），$P^-&#x3D;\{x\in P\wedge \exists a\in A,x\leq a\}$（即 $A$ 及 $A$ 下方的点）。因为 $A$ 既不是极大值集合也不是极小值集合，$\lvert P^+\rvert,\lvert P^-\rvert&lt;\lvert P\rvert$，根据归纳假设，$P^+,P^-$ 的宽度均为 $w$，故存在 $w$ 条链覆盖了 $P^+$，也存在 $w$ 条链覆盖了 $P^-$。而这些链两两不交，且恰好包含了 $A$ 中的每一个元素，即 $L_i^+$ 的底部一定为 $A$ 中的一个元素 $a_i$，$L_i^-$ 的顶部一定为 $A$ 中的一个元素 $a_i$，故将 $L_i^+$ 和 $L_i^-$ 拼起来，可以得到 $w$ 条链覆盖整个偏序集。</li>
+<li>如果所有长度为 $w$ 的最长反链 $A$，都是极大值集合或者极小值集合。取一个长度为 $2$ 的链 $L&#x3D;{m,M}$，其中 $m$ 是极小的，$M$ 是极大的（若不存在这样的链，$w&#x3D;\lvert P\rvert$，结论显然）。新图 $P’-L$ 的宽度 $w’\leq w$，而因为在极大值集合和极小值集合中各取走了一个集合，$w’$ 不可能为 $P$ 的最长反链，所以 $w’&#x3D;w-1$，根据归纳假设，$P’$ 可以被 $w-1$ 条链覆盖，因此 $P$ 可以被 $w$ 条链覆盖。</li>
+</ul>
+<p><strong>P4525</strong> 【模板】自适应辛普森法</p>
+<p><strong>P3973</strong> [网络流] 推一推式子，发现是 $\sum\limits_{x\in S}\sum\limits_{y\in S} b_{x,y}-\sum\limits_{x\in S} c_x$，直接用最小割刻画，$S\rightarrow (i,j)$，边权为 $b_{i,j}$，同时 $(i,j)$ 依赖第 $i$ 行，第 $j$ 列，和 $(j,i)$（因为 $(i,j)$ 必然是同时选或者不选）$c$ 的话第 $i$ 行 $\rightarrow T$，边权为 $c_i$。对行和列建点即可。</p>
+<p><strong>P11005</strong> 水题，考虑最小生成树有非常美好的性质，其在生成的时候由于是贪心的，边权单调递增，故先选的边不会对后面有贡献，直接在并查集合并的时候算贡献即可。</p>
+<p><strong>Dqos1. 运输(P3511)</strong> [网络流] 考虑<strong>最大流角度建图</strong>。挺好的题。考虑二分，转化成判定是否存在一个欧拉回路，并且你可以给一些边<strong>定向</strong>。我们先随便定一个向。即要让所有点 $a_u&#x3D;in_{u}-out_u&#x3D;0$，而给一条边 $(u,v)$ 转向会让 $a_u\leftarrow a_u-2,a_v\leftarrow a_v+2$。考虑网络流，将所有 $a$ 为正的点 $i$ 连 $S\rightarrow i$，容量为 $a_i$；将所有 $a$ 为负的边连 $i\rightarrow T$，容量为 $-a_i$。若 $(u,v)$ 可转向为 $(v,u)$，就相当于 $a_u\leftarrow a_u-2,-a_v\leftarrow -a_v-2$，可以发现等价于 $S\rightarrow u,v\rightarrow T$ 两条边有 $2$ 的流量，所以连接 $(u,v)$，容量为 $2$。于是最后 <code>check</code> 是否是满流的就行。</p>
+<blockquote>
+<p>注：这个本质是反悔贪心</p>
+<p>网络流 <code>bfs</code> 增广的时候不能提前 <code>return</code>！！！</p>
+</blockquote>
+<p><strong>P3760</strong> 看到异或先<strong>拆位</strong>，考虑每一位 $i$ 能够使 $sum_r-sum_l$ 第 $i$ 位是 $1$ 的个数。枚举 $r$，分讨一下 $sum_r$ 第 $i$ 是 $0&#x2F;1$，然后讨论一下是否出现退位，出现退位时说明后面 $i-1$ 位 $sum_r$ 比 $sum_l$ 小，这是一个区间，直接树状数组统计贡献即可。</p>
+<p><strong>P2046</strong> [网络流] 考虑一定能被划分为选 $0$ 和选 $1$ 的两个集合。反证：考虑一定能被划分为若干个连通块，且连通块内填的数相同。用一下极端原理，取出高度最小的非 $0&#x2F;1$ 连通块。若这个连通块周围和 $0$ 相连，那么一定能调整为 $0$ 或者周围高度最小的非 $0$ 连通块；否则，那么一定能调整为周围最小的非 $0$ 连通块。所以证毕。最后最小割转成平面图最短路就行。</p>
+<p><strong>Dhb8v. 不可重叠的 k 次最长重复子串</strong> [SA] 先 sa 一下算出 height，然后二分答案，转成判定问题。把 $height\geq mid$ 的分成若干组，组与组之间互不干扰。那么在组内按照在原串中位置贪心即可。实现时需要精细实现，标记一下每个位置属于哪个组然后从 $1$ 到 $n$ 扫的时候贪心，就能做到 $O(n)$ check。</p>
+<p><strong>P3959</strong> 容易想到状态压缩 dp，设 $dp_{i,S}$ 表示第 $i$ 层，连通的集合是 $S$ 的最小代价。注意到枚举新加入的点是 $O(3^n)$ 的，因为只需要枚举超集。可是这个时候转移比较困难，因为需要枚举上一层的点。但是根据<strong>错解必不优</strong>，如果把接在 $&lt;i$ 层的点视为接在了 $i$ 层，答案一定更不优，所以直接转移就行，不用枚举上一层的点。最后需要精细实现一下，预处理 $w_{S,T}$ 表示往集合 $T$ 里加入集合 $S$ 的最小代价，这个可以通过预处理 $f_{i,S}$ 表示节点 $i$ 接到 $S$ 集合中的某个点的最小代价 来计算。时间复杂度 $O(n3^n)$。</p>
+<p><strong>CF76A</strong> [生成树] 一共两种代价 $(g,s)$，按照 $g$ 排序从小到大扫描，试图动态维护加入一条边的贡献，也就是维护这棵生成树。注意到加入一条边 $(u,v,g,s)$，如果之前的生成树上没有 $&gt;s$ 的边，那么这个边就没用；否则，它会被加到生成树里，并且“挤掉”之前的一些边。如果直接把前面所有边全拿来跑一遍最小生成树显然是 $\mathcal O(m^2)$ 的，而且非常浪费。但是根据最小生成树的<strong>唯一性</strong>，在我们扫描边的时候，<strong>一条边只要离开了最小生成树就不会被加回来</strong>。所以每次加入一条边后，直接和之前的生成树上的 $\mathcal O(n)$ 条边放一起跑 Kruskal 即可。时间复杂度 $\mathcal O(nm)$。</p>
+<p><strong>P2408</strong> 砂糖。考虑容斥，不同子串个数 &#x3D; $\frac{n(n+1)}{2}-\sum\limits_{i&#x3D;2}^n height_i$，因为考虑按照 sa 数组的顺序枚举后缀，枚举的时候统计新增了多少个后缀的前缀，那么 $sa_i$ 与 $sa_{i-1}$ 相同的前缀有 $h_i$ 个。</p>
+<p><strong>P4784</strong> 最小斯坦纳树板子。</p>
+<p><strong>P11364</strong> [数据结构] noip2024t4。考虑**区间 $lca$ 经典trick：$dep[lca(l,l+1,\cdots r)]&#x3D;\min\limits_{i&#x3D;l}^{r-1}dep[lca(i,i+1)]$**。令 $a_i&#x3D;dep[lca(i,i+1)]$，则查询的就是 $\max\limits_{[l’,r’]\subseteq[l,r],r’-l’+1\geq k} \min\limits_{i&#x3D;l}^{r-1}a_i$ 注意到 $\geq k$ 显然没用，改成等号  $\max\limits_{[l’,r’]\subseteq[l,r-1],r’-l’+1&#x3D;k-1} \min\limits_{i&#x3D;l}^{r}a_i$。为了叙述方便，令 $r\leftarrow r-1,k\leftarrow k-1$。用笛卡尔树经典的拆贡献，处理出 $a_i$ 的贡献区间 ${l_i,r_i}$，那么 $a_i$ 会对所有 $[l_i,r_i]$ 交集 $\geq k$ 的查询产生贡献。拆一下，变成四种情况：</p>
+<ul>
+<li>$l\leq l_i\leq r-k+1$</li>
+<li>$r-k+1\leq r_i\leq r$</li>
+<li>$l_i\leq l\leq r\leq r_i$</li>
+<li>$l\leq l_i\leq r_i\leq r$</li>
+</ul>
+<p>最后一种和前面两种可以放在一起考虑。上面两种对 $k$ 和 $l$（或 $r$） 扫描线即可，第三种对 $l$，$r$ 扫描线即可。注意特判 $k&#x3D;1$。</p>
+<p><strong>P4556</strong> 【模板】线段树合并</p>
+<p><strong>P3521</strong> 线段树合并简单应用。</p>
+<blockquote>
+<p>线段树合并易错点：记得更新左右儿子！！！叶子节点记得更新答案！！！</p>
+</blockquote>
+<p><strong>P1600</strong>（天天爱跑步） [树上差分] 考虑把 $s\rightarrow t$ 拆成 $s\rightarrow lca(s,t),lca(s,t)\rightarrow t$，那么 $u$ 能观察到 $i$ 当且仅当 $dep_u+w_u&#x3D;dep_{s_i}-w_u$（在 $s_i\rightarrow lca(s_i,t_i)$ 上） 或者 $dep_u-w_u&#x3D;2\times dep_{lca(s_i,t_i)}-dep_{s_i}$，这个直接差分到树上做。</p>
+<blockquote>
+<p>树上差分一般在 $lca$ 处撤销一次避免算重，在 $fa[lca]$ 处再撤销一次删除贡献。</p>
+<p>统计答案的时候不用线段树合并，可以使用<strong>经典trick</strong>：先把之前有的贡献减了（桶里原有的）再处理子树，最后统计现在的贡献，这样就只会算到子树里的贡献。</p>
+</blockquote>
+<p><strong>P16316</strong> 题本身太简单了，主要讲讲证明。我们的策略是每次找到一个最小的 $a_u\neq u$，然后再找到一个最大的 $v$ 使得 $a_v&lt;a_u$。我们证明：每次操作 $[u,v]$ 可以使得 $a_u&#x3D;u,a_{u+1}&#x3D;u+1$。考虑由于 $a_{1\sim u-1}$ 依次是 $1\sim u-1$，而 $a_u\neq u$，那么必然有 $a_u&gt;u$，所以 $u$ 这个数排序前必然在 $u$ 到 $v$ 之间的位置上，这样排序完就把 $u$ 归位了。而如果排序前 $a_u&#x3D;u+1$，那么排序完 $u+1$ 也归位了，否则同理 $u+1$ 这个数在排序前也必然在 $u$ 到 $v$ 之间的位置上，排序完也归位了。所以就证毕了。</p>
+<p><strong>P16318</strong> 考虑令 $a_i\leftarrow a_i-i$，题目的要求就变成了 $a_{i+1}-a_i&#x3D;0$，题目所求的就是找到一个极长的区间 $[l,r]$ 使得 $a_{l\sim r}$ 能通过 $\leq k$ 次 $+1$ 或者 $-1$ 变成同一个数。我们先考虑判定一个区间是否合法，也就是最小化 $\sum\limits_{i&#x3D;l}^r \lvert x-a_i\rvert$。根据初中数学，这个 $x$ 一定是这个区间的中位数。拆一下绝对值，我们只需要维护区间的中位数、区间内比中位数小（大）的数的个数和比中位数小（大）的数之和即可。可以使用你喜欢的 ds（如权值线段树）。所以这个区间合法当且仅当 $\min \sum\limits_{i&#x3D;l}^r \lvert x-a_i\rvert\leq k$。会了判定之后就简单了，直接双指针区间更新答案就行，每次添加 $O(1)$ 个点。时间复杂度 $O(n\log n)$。</p>
+<p><strong>P4677</strong> [dsu on tree] 考虑序列上的 LIS 怎么做。我们有一种贪心的策略就是维护一个上升的序列 $S$，$S_i$ 表示长度为 $i$ 的 LIS 末尾元素的最小值。每次加入 $x$ 的时候用 $x$ 替换第一个比他大的数。$\lvert S\rvert$ 就是 LIS。证明的话就考虑归纳法。加入一个数 $a_i$ 之后，用这个数替换 $S$ 里第一个比他大的数 $S_j$，不会对 $S_{j+1,j+2\cdots }$ 产生实质性的影响（就是他们的 LIS 不变），而由于 $a_i\leq S_j$，调整之后的 $S_j$ 比之前小了，而且必然有一个合法的长度为 $j$ LIS 使末尾元素是 $a_i$。回到本题，子树之间是不互相影响的，直接 dsu on tree 合并子树并维护上述内容即可。</p>
+<p>F2: [线段树合并] 令 $f_{u,i}$ 表示子树 $u$ 中选的均 $\geq i$ 的最大贡献。那么我们转移的时候先令 $f_{u,x}&#x3D;\sum\limits_{v}f_{v,x},\forall x\in [1,n]$，再令 $f_{u,x}&#x3D;\max(f_{u,x},\sum\limits_v f_{v,w_u},\forall x\in [1,w_u])$，这个直接线段树合并有点难做（因为区间操作不太好搞）。故考虑<strong>差分</strong>，令 $g_{u,x}&#x3D;f_{u,x}-f_{u,x+1}$。那么我们的操作就转化成了：合并求和线段树，线段树上二分（因为 $f$ 是单调递减的）并单点修改、区间求和。</p>
+<p><strong>P10174</strong> [树上差分] 考虑一个合法区间 $[l,r]$ 会让 $ans_{l\sim r}$ 都 $+1$，考虑<strong>差分</strong>，即让 $d_l+1$，$d_{r+1}-1$，那么我们维护这个 $d$ 就行。令 $nxt_i$ 为 $i$ 后面第一个比他大的数的位置。连接 $i\rightarrow nxt_i$ 那么整个序列会构成一个森林。一个合法区间就是这个森林上长度在 $[1,k-1]$ 之间的链。我们把 $+1$ 和 $-1$ 分开考虑。$+1$ 比较好处理，由于 $l$ 是链底，直接令 $d_i\leftarrow d_i+\min(dep_i-1,k-1)$ 即可。接下来处理 $-1$，我们发现 $d_{u+1}$ 减的是 $u$ 子树内与 $u$ 距离不超过 $k-1$ 的点数量，即 $dep$ 在 $[dep_u+1,dep_u+k-1]$ 之间的点数量，随便维护一下就是 $O(n\log n)$。如果你动一动脑子，你会发现这个事情其实可以 $O(n)$ 做，因为我们再差分一次，对于一个点 $i$，在 $i$ 点插入，$i$ 的 $k$ 级祖先处撤销，而求出所有点的 $k$ 级祖先可以用栈维护。</p>
+<blockquote>
+<p>求出每个点的 $k$ 级祖先（$k$ 固定）可以 $O(n)$ 做！！</p>
+</blockquote>
+<p><strong>P5903</strong> 【模板】树上 K 级祖先</p>
+<blockquote>
+<p>长链剖分满足：深度为 $k$ 的节点所在长链长度 $\geq k$。</p>
+</blockquote>
+<p>考虑设 $2^i\leq K&lt; 2^{i+1}$，预处理倍增数组，将 $x$ 跳 $2^i$ 级，然后此时还剩 $K-2^i&lt; 2^i$ 级，因此此时 $x$ 所在长链长度一定 $\geq 2^i&gt;K-2^i$ （因为都已经向上跳了 $2^i$ 了），此时我们把 $x$ 跳到所在长链的链顶，之后如果跳过了那么就跳回来，否则就往上跳。这个可以预处理每条链的链顶往上、往下 $len$ 个点是什么，其中 $len$ 是链长。时间复杂度 $O(n\log n)-O(1)$。</p>
+<p><strong>P8201</strong> [树上差分] 显然可以主席树和树链剖分直接做，注意是单点修改所以是单 log。但是可以差分，把 $u\rightarrow v$ 拆成 $u,v,lca(u,v),fa(lca(u,v))$ 分别到根。</p>
+<p><strong>P3177</strong> [dp] 把贡献拆到边上然后树上背包。</p>
+<p><strong>P5290</strong> [dsu on tree] 显然一个节点的两个子树互相不影响，而且这个节点不在子树内的任意一个段内。所以我们用优先队列维护子树内的段，合并两个子树中就不断选两个子树中最大的段然后合成一个。实现时用段的最大值代表段，合并 $x,y$ 就变成了 $\max(x,y)$。最后记得给跟新建一个。</p>
+<p><strong>P3201</strong> [线段树合并] 给每个颜色开一个线段树。</p>
+<blockquote>
+<p>合并完记得给没用的 $rt$ 设成 $0$！！！</p>
+</blockquote>
+<p><strong>P5298</strong> [线段树合并] 设 $f_{u,i}$ 表示 $u$ 节点为 $i$ 的概率。$f_{u,i}&#x3D;f_{l,i}\times(p_u\sum\limits_{j&#x3D;1}^{i-1}f_{r,j}+(1-p_u)\sum\limits_{j&#x3D;i+1}^mf_{r,j})+f_{r,i}\times(p_u\sum\limits_{j&#x3D;1}^{i-1}f_{l,j}+(1-p_u)\sum\limits_{j&#x3D;i+1}^mf_{l,j})$，可以发现和前后缀和有关系，故可以用线段树合并转移。实现的时候分别记录给 $f_{l,i}$ 和 $f_{r,i}$ 的区间乘法 tag，然后前后缀可以在递归的时候累加，最后只需要在只有一侧有节点的线段树节点上把 tag 打上。</p>
+<p><strong>P3224</strong> [线段树合并] 板子。</p>
+<blockquote>
+<p>动态开点线段树遍历从 $rt_u$ 开始不要写成 $u$！！！</p>
+</blockquote>
+<p><strong>P16312</strong> [网络流] 考虑在残量网络上，源点 $S$ 和汇点 $T$ 之间是不存在增广路的。如果增加一条边能够增加最大流，就说明变成了存在增广路。那么我们要求的边即是增加了之后能使图上存在增广路的边。而一条增广路在二分图上是从源点经过若干次左部点和右部点的交替最终到达汇点，其中从右部点到左部点的路径是由于网络流退流而产生的。那么我们考察源点在残量网络上能到达的左部点点集 $V_a$ 和汇点在残量网络上能到达的右部点点集 $V_b$。容易发现只要在 $V_a$ 中随便选出一个点与 $V_b$ 中随便选出的一个点连边都能产生增广路。所以答案就是 $\lvert V_a\rvert \lvert V_b\rvert$。时间复杂度 $\mathcal O(m\sqrt{n})$。</p>
+<p><strong>P6062</strong> [网络流] </p>
+<blockquote>
+<p>二分图最小点覆盖&#x3D;最大匹配。其中最小点覆盖的意思是说选择一些点使得每条边至少有一个端点被选择了。考虑用最小割的方式思考这个定理。连接 $S\rightarrow u(左部点),v(右部点)\rightarrow T$，边权 $1$，对于每条边 $(u,v)$，连接 $u\rightarrow v$，边权 $\infty$。那么最大匹配显然&#x3D;最大流&#x3D;最小割。而最小点覆盖的限制就是”每条边 $(u,v)$，$u,v$ 中至少选择一个。那么观察建出来的图，可以定义如果断掉 $S\rightarrow u$，则代表选 $u$，断掉 $v\rightarrow T$，代表选 $v$，而如果都不断就必须要断 $(u,v)$，代表都不选，此时会有 $\infty$ 的代价。所以最小点覆盖就是这个图的最小割，也就是最大匹配。</p>
+</blockquote>
+<blockquote>
+<p>对于 $A$ 和 $B$ 至少选一个的问题，通过连接 $S\rightarrow A$，$B\rightarrow T$ 边权为代价，以及 $A\rightarrow B$，边权为 $\infty$ 解决。这里代表如果<strong>选择</strong> $A$，则断掉 $S\rightarrow A$；如果<strong>选择</strong> $B$，则断掉 $B\rightarrow T$，而如果都不断就必须要断 $(u,v)$，代表都不选，此时会有 $\infty$ 的代价。</p>
+</blockquote>
+<blockquote>
+<p>对于 $A$ 和 $B$ 至多选一个的问题，通过连接 $S\rightarrow A$，$B\rightarrow T$ 边权为代价，以及 $A\rightarrow B$，边权为 $\infty$ 解决。这里代表如果<strong>不选择</strong> $A$，则断掉 $S\rightarrow A$；如果<strong>不选择</strong> $B$，则断掉 $B\rightarrow T$，而如果都不断就必须要断 $(u,v)$，代表都选，此时会有 $\infty$ 的代价。</p>
+</blockquote>
+<p><strong>P3629</strong> [树的直径] $k&#x3D;1$ 的情况显然就是直径。$k&#x3D;2$ 时我们发现两条路径重叠的部分还是会被算两次。此时不妨先选出来一条树的直径，并把这条直径上的边权全**赋值成 $-1$**，然后再跑一边树的直径。设两次跑出来的直径长度分别为 $l_1,l_2$，那么答案就是 $2(n-1)-(l_1-1)-(l_2-1)$，因为在 $l_2$ 中边权为 $-1$ 的边会被抵消，正好对应算两次。</p>
+<p><strong>P5236</strong> 【模板】静态仙人掌（圆方树）</p>
+<blockquote>
+<p>圆方树空间是 $2n$ 级别的！</p>
+</blockquote>
+<p><strong>P1084</strong> [树上问题] [贪心] [二分] 阴间。首先<strong>二分</strong>，转化成判定问题。那么每个军队肯定是沿着到跟的路径往上走。现在军队被分成了能到达跟的和不能到达根的。不能到达的显然没用，到达根的可以跨过根去根的另外一个子树。我们需要匹配这些军队和没有被覆盖的子树。建出一个二分图，此时我们按照军队剩余时间从大到小排序后放到右部点，根的叶子节点按照所需时间从大到小排序后放到左部点。左部点可以匹配的右部点是一个前缀。由于右部点可以选择停在原地，设它们不跨过根时所在子树是 $p_i$，那么 $i$ 也可以和 $p_i$ 匹配。那么先贪心地将左部点用这些停在原地的点匹配，匹配时选择<strong>编号最大</strong>的右部点，然后剩下的贪心匹配。实现时精细实现，扫描左部点，用双指针扫描右部点，然后开一个数组维护右部点有没有被选，再记录一下前缀能用的右部点个数就行了。</p>
+<p><strong>P10935</strong> [tarjan] 板子。</p>
+<blockquote>
+<p>tarjan 更新 $low$ 的时候需要判定不在栈里！</p>
+</blockquote>
+<p><strong>P10936</strong> [二分图] 二分，变成多重匹配，把每个防御塔拆成若干点，二分图最大匹配。</p>
+<p><strong>P4897</strong> 【模板】最小割树,大概就是选两个点跑最小割,把这两个点连一条边边权为它们的最小割.然后根据最小割分出的两个集合分治一下就行.这样就是一棵树,任意两个点的最小割就是树上边权最小值.</p>
+<p><strong>P6640</strong> [SA] 设 $len_i$ 表示 $\max{j, s[i,j]\subseteq t}$。我们考虑怎么求出 $len_i$，我们把 <code>s+@+t</code> 的 SA 建出来，那么把 $t$ 的所有位置的 $rk$ 拿出来排序，对于 $s$ 中的位置 $i$，在排好序的数组上二分一个离 $rk_i$ 最近的数 $rk_x$，那么 $len_i$ 就是 $sa_{rk_i}$ 和 $sa_{rk_x}$ 的 $lcp$，直接用 $height$ 数组求出。回到原题，每次即为询问 $\max\limits_{i&#x3D;l}^r \min(r-i+1,len_i)$。直接把 $min$ 拆开，分成 $i+len_i\leq r+1$ 和 $i+len_i \geq r+2$ 两类，扫描线即可。</p>
+<p><strong>P2505</strong> [最短路] <strong>最短路图</strong>的定义：给定有向图 $G$ 和源点 $s$，最短路图是 $G$ 的一个子图，其中包含<strong>所有</strong>属于 $s$ 到其它节点的最短路径的边。</p>
+<p>最短路图的构建：若边 $(u,v,w)$ 满足 $dis_u+w&#x3D;dis_v$，则其在最短路图中。证明：若存在最短路 $s\rightarrow t$ 且经过 $(u,v,w)$ 但是 $dis_u+w&gt;dis_v$，则该最短路长度 $L&#x3D;dis_u+w+dis_v t$（其中 $dis_vt$ 表示 $v\rightarrow t$ 的最短路)，满足 $L&gt;dis_v+dis_vt$ 而 $dis_v+dis_vt$ 是 $s\rightarrow t$ 的一条最短路，与 $L$ 是 $s\rightarrow t$ 矛盾！故证毕。</p>
+<p>最短路图是一个 <strong>DAG</strong>（只对正权边成立！）。证明：如果存在环，就会出现 $0&#x3D;\sum w_i$ 的情况。所以最短路图就能做很多事情，比如说拓扑排序，dp，等等。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2505">P2505</a>：对于每一条边，求有多少条最短路经过这个边，注意最短路不限制起点和终点，$n\leq 1500,m\leq 5000$。枚举起点，构建出最短路图，计算出 $cnt1_u$ 表示 $s\rightarrow u$ 的最短路个数，$cnt2_u$ 表示以 $u$ 为起点的最短路个数。注意这里 $cnt1_u$ 可以在 dijkstra 的时候顺带求出，而 $cnt2_u$ 则可以在最短路图的反图上拓扑排序求出。那么边 $(u,v,w)$ 在 $s$ 为起点的答案就是 $cnt1_u\times cnt2_v$，注意这里要求 $(u,v,w)$ 是最短路图上的边。</p>
+<p><strong>P6086</strong> 【模板】Prüfer(Prufer) 序列<br>构造方法：每次选择一个编号最小的度数为 $1$ 的节点，记录它唯一连接的节点，并把它删除。</p>
+<p>实现时维护指针 $p$ 表示没有编号比 $p$ 小的度数为 $1$ 的节点。每次找到新的度数为 $1$ 的节点 $x$ 时，做如下分类讨论：</p>
+<ol>
+<li>$x&gt;p$，那么不管，因为没有对 $p$ 产生影响</li>
+<li>$x&lt;p$，那么 $x$ 是唯一与 $p$ 矛盾的点，于是把 $x$ 删除并记录其唯一连接的节点。重复进行该操作，直至新找到的 $x&gt;p$。</li>
+</ol>
+<p>容易发现时间复杂度 $\mathcal O(n)$</p>
+<p>从 Prufer 序列构造树：容易发现每个点的度数就是其在 Prufer 序列中出现的次数 $+1$。那么我们可以找到度数为 $1$ 的节点，与当前枚举到的 Prufer 序列中的点连接，并判断是否有新的度数为 $1$ 的节点产生。实现和构造方法类似。</p>
+<p><strong>P3226</strong> [DP] 经典套路，用 $2^x3^yk$ 表示每个数，把 $(x,y)$ 放到矩阵里，这样得到了$\mathcal O(n)$ 个 $\mathcal O(\log_2 n)\times \mathcal O(\log_3 n)$ 的矩阵，每个矩阵互不影响，矩阵内部选的为独立集，直接对每个矩阵状压 dp。</p>
+<p><strong>p10939</strong> [二分图] </p>
+<blockquote>
+<p><strong>二分图最小点覆盖 &#x3D; 最大独立集 &#x3D; 补图最大团 &#x3D; 最大匹配 &#x3D; 最小割 &#x3D; 最大流</strong> 下证最小点覆盖 &#x3D; 最大独立集：最大独立集 $\Leftrightarrow$ 在图中去掉最少的点，使得剩下的点之间没有边 $\Leftrightarrow$ 用最少的点覆盖所有边</p>
+</blockquote>
+<p><strong>p10938</strong> [二分图] [Dilworth 引理] 题目即要求最小可相交链覆盖。考虑如果路径 $s_1\rightarrow \cdots \rightarrow x_1\rightarrow p\rightarrow x_2\rightarrow t_1$ 和路径 $s_2\rightarrow \cdots \rightarrow y_1\rightarrow p\rightarrow y_2\rightarrow t_2$ 在 $p$ 处交叉，我们可以把 $y_1\rightarrow y_2$ 相连，这样第二条路径就可以直接走 $y_1\rightarrow y_2$，就不相交了。不断进行上述操作，就相当于对原图跑传递闭包然后求最小链覆盖。</p>
+<p><strong>p10940</strong> [二分图][网络流] <strong>二分图必经边、可行边、必不经边</strong></p>
+<ol>
+<li>必经边：在残量网络上，如果 $(x,y)$ 为匹配边<strong>且</strong>在<strong>残量网络上分属不同强连通分量</strong>，则为 $(x,y)$ 为必经边。证明：若 $x,y$ 为同一个连通分量中的点，则可以找到一条从 $x$ 到 $y$ 的路径，将这个路径上左到右的边替换原有的匹配边（相当于退流），可以得到一个不含 $(x,y)$ 的匹配。</li>
+<li>可行边：在残量网络上，如果 $(x,y)$ 为匹配边<strong>或</strong>在<strong>残量网络上分属同一强连通分量</strong>，则 $(x,y)$ 为可行边。</li>
+<li>必不经边：在残量网络上，如果 $(x,y)$ 为非匹配边<strong>且</strong>在<strong>残量网络上分属不同强连通分量</strong>，则 $(x,y)$ 为可行边。<blockquote>
+<p>必不经边是可行边的对偶问题。</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>p5665</strong> [dp][贪心] 我们设 $f_i$ 表示以 $i$ 为结尾的答案，$s_i$ 表示前缀和，$g_i$ 表示 $i$ 的决策点。由于 $(x+y)^2&gt;x^2+y^2$，我们肯定是希望选取尽可能多的段。所以一个显然的贪心的方式就是每次分的和越少越好。也就是我们每次找到最大的 $j$，使得 $s_i-s_j\geq s_j-s_{g_j}$，并从 $j$ 转移。合并同类项得 $s_i\geq 2s_j-s_{g_j}$，故我们维护一个单调队列，记录 $(i,2s_i-s_{g_i})$。每次不断弹出队首直至队首不满足 $s_i\geq 2s_j-s_{g_j}$，并记录最大满足条件的 $j$ 转移即可。显然如果 $j&lt;k且2s_j-s_{g_j}&gt;2s_k-s_{g_k}$ 那么 $j$ 是没用的，故每次插入时不断弹出队尾直至不满足 $2s_t-s_{g_t}&gt;2s_i-s_{g_i}$ 即可。$\mathcal O(n)$。</p>
+<blockquote>
+<p>单调队列的内涵是删掉一些“无用”的元素。例如本题中，如果下标 $j$ 比 $k$ 小，$j$ 还比 $k$ 价值更少，那么 $j$ 就没用。</p>
+</blockquote>
+<p><strong>p7961</strong> [dp][二进制] 为什么我觉得这很难啊（太菜了）。我们先想想这里面最难处理的是什么，是进位。dp 状态里必须要记录选了数的数以及选到哪一位了，还有有多少个 1。我们发现和的有关信息（因为记录不了）。可是这个时候就很难知道某一位到底是不是 1。所以我们再增加一维，<strong>记录多少次进位</strong>，容易发现通过进位的个数可以推出这一位的状态。设 $f_{i,j,k,l}$ 表示选了 $i$ 个数，到了二进制第 $j$ 位，有 $k$ 个 1，进了 $l$ 位。转移时枚举第 $j$ 位选了几个数 $x$，$\binom{n-i}{x}v_{j}^xf_{i,j,k,l}\rightarrow f_{i+x,j+1,k+(l+x)%2,\frac{l+x}{2}}$。</p>
+<p><strong>p3211</strong> [dp][高斯消元] 拆位，图上随机游走板子。</p>
+<blockquote>
+<p>图上随机游走问题，要从终点逆推（因为只有终点状态是确定的）；对于概率问题，要从起点正推。</p>
+</blockquote>
+<p><strong>CF571B</strong> [dp] 可以发现是选了若干个 $\frac{n}{k}+1$ 的链和若干个 $\frac{n}{k}$ 的链，而每条链的代价是在值域上的极差。故对 $a$ 排序，每条链在排好的 $a$ 上是选的一段区间。设 $f_{i,j}$ 表示选了 $i$ 条 $\frac{n}{k}+1$ 的链，$j$ 条 $\frac{n}{k}$ 的链，直接转移即可。</p>
+<p><strong>CF703E</strong> [dp] 如果直接记录乘积的话肯定爆了。我们考虑记录乘积和 $k$ 的 $\gcd$。记 $f_{i,j}$ 表示前 $i$ 个数，乘积和 $k$ 的 $\gcd&#x3D;j$。最后答案的状态是 $f_{n,k}$，因为 $k\mid x\Leftrightarrow \gcd(k,x)&#x3D;k$。容易发现 $j$ 只有 $d(k)$ 种状态，其中 $d(k)$ 是 $k$ 的因数个数。时间复杂度 $\mathcal O(nd(k))$。</p>
+<p><strong>p1829</strong> [莫比乌斯反演][整除分块][数论] 学习了莫比乌斯反演：$F(n)&#x3D;\sum\limits_{d\mid n} f(d)\Leftrightarrow f(n)&#x3D;\sum\limits_{d\mid n} \mu(d)F(\frac{n}{d})$。用狄利克雷卷积表示就是 $\mu<em>F&#x3D;f\Leftrightarrow f</em>I&#x3D;F$ 即 $\mu * I&#x3D;\text{[}n&#x3D;1\text{]}$。这个题直接把 $\gcd(i,j)&#x3D;1$ 表示成 $\sum\limits_{x\mid \gcd(i,j)}\mu(x)$ 就行，最后再套上整除分块。</p>
+<blockquote>
+<p>时间复杂度 $\sum\limits_{d&#x3D;1}^n\sqrt{\frac{n}{d}}&#x3D;\mathcal O(n)$。证明：用积分渐近，$\sqrt{n}\int_0^n \sqrt{\frac{1}{x}}dx&#x3D;\frac{n}{2}$。</p>
+</blockquote>
+<p><strong>qoj8528</strong> [dp] 题意：给定圆上 $2n$ 个点，以及一些边 $(a_i,b_i)$，且边不在端点处相交。求问最多能够选出多少条边，使得两两不相交。套路的，<strong>环上匹配等价于括号匹配</strong>，于是我们断环成链。如果我们设 $g_{i,j}$ 表示区间 $[i,j]$ 的答案，显然就爆了。此时我们再运用<strong>经典trick</strong>，交换 dp 的状态和答案维度。设 $f_{i,j}$ 表示从 $i$ 往后要达成答案 $j$ 的最近右端点是多少。我们注意到，由于<strong>数据随机</strong>，<strong>答案不会太大</strong>（$\leq 900$）。以下设 $r_i$ 是 $i$ 的匹配。转移时，我们可以让 $i$ 匹配，那么 $f_{i,j}&#x3D;f_{r_i+1,j-w_i}$，其中 $w_i$ 是 $[i,r_i]$ 可以获得多少个匹配；我们也可以让 $i$ 不匹配，$f_{i,j}&#x3D;f_{i+1,j}$。怎么求 $w_i$：$w_i&#x3D;\max{k\mid f_{i+1,k}\leq r_i-1}$，直接枚举即可。时间复杂度 $\mathcal O(n\times ans)$。</p>
+<p><strong>p4126</strong> [网络流] 题意：让你求最小割里的可行边和必经边。可行边：满流而且不在一个 scc 中；必经边：满流而且 $u$ 与源点在同一 scc，$v$ 与汇点在同一 scc。</p>
+<p><strong>p2472</strong> [网络流] 考虑从<strong>最大流角度建图</strong>，把蜥蜴跳到另外一个石墩子上是为流。拆点，把每个石墩子拆成入度和出度，$in_i\rightarrow out_i$，边权为 $h_i$。能够出去的石墩子连接汇点，蜥蜴一开始在的石墩子连接源点。</p>
+<p><strong>p2754</strong> [网络流][分层图] 考虑从<strong>最大流角度建图</strong>，碰到这种循环的问题建出时间的<strong>分层图</strong>。飞船从站台 $u$ 连到下一层的站台 $v$，而源点连接所有地球，月球作为汇点，只需要判定最大流 $\geq k$ 即可。我们一层一层地加边，并在该层增广，容易证明层数 $\leq nk$。实现时在残量网络上跑就行。</p>
+<p><strong>p4251</strong> [网络流][二分图] 考虑从<strong>二分图角度建图</strong>，二分答案 $x$，那么我们要判断能否使得第 $k$ 大的数是 $\leq x$，即 $\leq x$ 的数 $\geq n-k+1$，直接建图判断最大流是否 $\geq n-k+1$ 即可。</p>
+<p><strong>p2402</strong> [网络流][二分图] 二分一下，随便建个图就行。</p>
+<p><strong>p6240</strong> [分治] 猫树分治模板。</p>
+<p><strong>p8684</strong> [贪心][前缀和] 首先对于这种改变相邻三个数且互相关联的问题优先寻找<strong>不变量</strong>，常见的不变量可以想到<strong>前缀和&#x2F;差分</strong>，类似的题目有 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7962">P7962 方差</a>。那么对于这道题，发现操作一次等价于交换 $s_i,s_{i-1}$，其中 $s_i$ 表示 $i$ 的前缀和。所以这个问题就转化成了，可以重排 $s_{1\cdots n-1}$，使得 $\max\limits_{i&#x3D;1}^n\lvert s_i-s_{i-1}\rvert$ 最小，其中 $s_0&#x3D;0$。</p>
+<p>我们发现 $s_0$ 和 $s_n$ 是固定的，不妨设 $s_0\leq s_n$。将剩余的数按照与 $s_0$ 的大小关系分为两类，记为 $s_{1\cdots m}$（$&lt; s_0$）和 $s_{m+1\cdots n-1}$（$\geq s_0$）。那么最后重排完的序列一定形如一个波浪型：<img src="https://cdn.luogu.com.cn/upload/image_hosting/1go73cvw.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们考虑如何实现这件事情。令 $l&#x3D;s_0,r&#x3D;s_m$，我们从大到小考虑 $s_{1\cdots m}$ 中的每一个元素 $a_i$，将 $a_i$ 接在 $l,r$ 中较大者下面，然后更新 $l,r$。容易贪心发现这样能使相邻差最小。对于 $s_{m\cdots n}$ 同理，然后就做完了。</p>
+<p><strong>p1617</strong> 和上一题用的方法一样。</p>
+<blockquote>
+<p>给定一个 $1\sim n$ 的排列 $a_i$，每次操作可以交换两个数，请你用最少的操作次数将其化为升序。做法：先进行图论建模，将 $i\rightarrow a_i$ 表示 $i$ 位置上的数应该到达 $a_i$ 这个位置。这样得到了若干个环。我们发现交换环上两个数最多会拆出一个环，而我们最后需要 $n$ 个环，所以最少操作次数是 $n-k$，$k$ 为初始时环的个数，方案也很好弄，直接贪心地交换每个数到他应该到的地方就行。类似的题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2127">P2127</a>。</p>
+</blockquote>
+<p><strong>p3769</strong> [cdq分治] 板子。</p>
+<p><strong>p4735</strong> [可持久化] 差分一下，变成查询 $\oplus_{i&#x3D;1}^{p-1}a_i\oplus (x\oplus sum)$ 最大，其中 $sum$ 是所有数的异或和。那么我们在插入的时候改称插入前缀异或和，用可持久化01trie维护即可。</p>
+<p><strong>p5039</strong> [网络流] 考虑从<strong>最小割</strong>角度建图。题目里的操作等价于把一条边边权 $+1$。那么对于我们必须要的边 $(u,v,w)$，把边权 $\leq w$ 的边拿出来建图，必然有 $u,v$ 不连通。所以我们要的最小代价就是将所有边权 $\leq w$ 的边 $(u’,v’,w’)$ 拿出来，用边 $(u’,v’,w-w’+1)$ 建图，由源点 $u$ 到汇点 $v$ 的最小割，直接跑最大流即可。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://thomasfengye.github.io/2026/04/25/做题记录/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>thomasfengye</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/05/13/Hall%E5%AE%9A%E7%90%86/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/11/28/%E9%A2%98%E8%A7%A3-p13495/" title="题解：P13495">
+                        <span class="hidden-mobile">题解：P13495</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
